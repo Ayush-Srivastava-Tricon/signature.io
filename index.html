@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signature.io - Ayush Srivastava</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <h1>Signature.io - Ayush Srivastava</h1>
+    <b>Use tools to customize your signature</b>
+    <div class="controls">
+        <label for="colorPicker">Color:</label>
+        <input type="color" id="colorPicker" value="#000000">
+
+        <label for="fontSize">Font Size:</label>
+        <input type="number" id="fontSize" value="5" min="1" max="100">
+
+        <button id="clearBtn">Clear</button>
+        <button id="saveBtn">Save</button>
+    </div>
+    <hr>
+    <canvas id="canvas" width="800" height="500"></canvas>
+    <script src="index.js"></script>
+</body>
+</html>
