@@ -15,6 +15,7 @@ h1 {
     text-align: center;
 }
 
+
 #canvas-container{
     width: 95%;
     text-align: center;
@@ -26,6 +27,7 @@ h1 {
     justify-content: space-around;
     width: 100%;
     max-width: 500px;
+    gap: 2px;
     align-items: center;
 }
 
@@ -37,8 +39,26 @@ h1 {
     width: 200px;
 }
 
-#fontSize{
+#fontSize,#nameInput{
     height: 30px;
+}
+
+#nameInput{
+    width: 300px;
+}
+
+.input-signature{
+    margin: 10px;
+    display: flex;
+    gap: 2px;
+    justify-content: space-around;
+    width: 100%;
+    max-width: 500px;
+    align-items: center;
+}
+
+.input-signature .input-name{
+    text-align: center;
 }
 
 label {
@@ -83,6 +103,10 @@ button {
     background-color: #42c448;
 }
 
+#convertBtn {
+    background-color: #42c448;
+}
+
 #clearBtn:hover {
     background-color: rgb(240, 60, 60);
 }
@@ -95,4 +119,16 @@ button {
     display: flex;
     gap: 10px;
     margin: 10px;
+}
+
+.myName a{
+    text-decoration: none;
+    color: white;
+    transition: all 0.3s;
+}
+
+.myName a:hover{
+    text-decoration: underline;
+    color: rgb(203, 44, 33);
+
 }

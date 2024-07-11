@@ -89,6 +89,35 @@ function clearCanvas() {
 	ctx.clearRect(0, 0, canvas.width, canvas.height);
 }
 
+let convertSignEl = document.querySelector('#convertBtn');
+
+convertSignEl.addEventListener('click', convertToSignature);
+
+// Function to convert typed name to signature style and display on canvas
+function convertToSignature() {
+	const name = document.querySelector('#nameInput').value.trim();
+	if (name === '') return;
+	clearCanvas();
+	
+	setTimeout(() => {
+		// convertSignEl.click();
+	}, 100);
+	// Clear canvas before drawing
+
+	// Set font style for signature (example: cursive font)
+	ctx.font = `${fontSize * 10}px 'Playwrite IN', cursive`; // Adjust size as needed and replace 'Pacifico' with your desired cursive font
+	ctx.fillStyle = paintColor;
+	ctx.textBaseline = 'middle';
+	ctx.textAlign = 'center';
+
+	// Calculate position to center the text on canvas
+	const centerX = canvas.width / 2;
+	const centerY = canvas.height / 2;
+
+	// Draw text on canvas
+	ctx.fillText(name, centerX, centerY);
+}
+
 // Saves the canvas content as a file
 function saveCanvas() {
 	const link = document.createElement('a');

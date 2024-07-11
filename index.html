@@ -6,11 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Signature.io - Ayush Srivastava</title>
     <link rel="stylesheet" href="index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playwrite+DE+LA:wght@100..400&family=Playwrite+IN:wght@100..400&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
-    <h1>Signature.io - Ayush Srivastava</h1>
+    <h1>Draw or Write</h1>
+    <b>(For Mobile View please use Landscape mode)</b>
+    <br>
     <b>Use below tools to customize your signature</b>
+    <br>
     <div class="controls">
         <div class="color-container">
             <label for="colorPicker">Color</label>
@@ -31,7 +38,15 @@
                 <option value="10">10px</option>
             </select>
         </div>
-
+        
+    </div>
+    <div class="input-signature">
+        <div class="input-name">
+            <input type="text" id="nameInput" placeholder="Enter your name">
+        </div>
+        <div>
+            <button id="convertBtn" onclick="convertToSignature()">Convert</button>
+        </div>
     </div>
     <hr>
     <div id="canvas-container">
@@ -40,6 +55,10 @@
     <div class="control-btn">
         <button id="clearBtn">Clear</button>
         <button id="saveBtn">Download</button>
+    </div>
+    <div class="">
+    <h1> <small class="myName"> <a href="https://hiayush.netlify.app/" target="_blank">Ayush Srivastava</a> </small></h1>
+
     </div>
     <script src="index.js"></script>
 </body>
