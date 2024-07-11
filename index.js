@@ -6,29 +6,38 @@ window.addEventListener('load', () => {
     // Default settings
     let paintColor = '#000000';
     let fontSize = 5;
+    let coord = { x: 0, y: 0 }; // Initialize coord for drawing
 
-    // Stores the initial position of the cursor
-    let coord = { x: 0, y: 0 };
-
-    // This is the flag that we are going to use to trigger drawing
-    let paint = false;
+    // Function to resize the canvas to fit the window size
+    function resizeCanvas() {
+        canvas.width = window.innerWidth * 0.8; // Adjust canvas width as needed
+        canvas.height = 500; // Set a fixed height or adjust as needed
+    }
 
     // Function to get coordinates based on event type (mouse or touch)
     function getPosition(event) {
         const rect = canvas.getBoundingClientRect();
         if (event.type === 'mousedown' || event.type === 'mousemove') {
-            coord.x = event.clientX - rect.left;
-            coord.y = event.clientY - rect.top;
+            return {
+                x: event.clientX - rect.left,
+                y: event.clientY - rect.top
+            };
         } else if (event.type === 'touchstart' || event.type === 'touchmove') {
-            coord.x = event.touches[0].clientX - rect.left;
-            coord.y = event.touches[0].clientY - rect.top;
+            return {
+                x: event.touches[0].clientX - rect.left,
+                y: event.touches[0].clientY - rect.top
+            };
         }
     }
 
     // Event listeners for starting and stopping drawing
     function startPainting(event) {
         paint = true;
-        getPosition(event);
+        const pos = getPosition(event);
+        if (pos) {
+            coord.x = pos.x;
+            coord.y = pos.y;
+        }
     }
 
     function stopPainting() {
@@ -40,14 +49,19 @@ window.addEventListener('load', () => {
         event.preventDefault(); // Prevent default touch actions (like scrolling)
         if (!paint) return;
 
-        ctx.beginPath();
-        ctx.lineWidth = fontSize;
-        ctx.lineCap = 'round';
-        ctx.strokeStyle = paintColor;
-        ctx.moveTo(coord.x, coord.y);
-        getPosition(event);
-        ctx.lineTo(coord.x, coord.y);
-        ctx.stroke();
+        const pos = getPosition(event);
+        if (pos) {
+            ctx.beginPath();
+            ctx.lineWidth = fontSize;
+            ctx.lineCap = 'round';
+            ctx.strokeStyle = paintColor;
+            ctx.moveTo(coord.x, coord.y);
+            ctx.lineTo(pos.x, pos.y);
+            ctx.stroke();
+
+            coord.x = pos.x;
+            coord.y = pos.y;
+        }
     }
 
     // Event listeners for mouse events
@@ -67,6 +81,10 @@ window.addEventListener('load', () => {
     // Additional event listeners for clear and save buttons
     document.querySelector('#clearBtn').addEventListener('click', clearCanvas);
     document.querySelector('#saveBtn').addEventListener('click', saveCanvas);
+
+    // Resize canvas initially and on window resize
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
 });
 
 // Function definitions for color, font size, clear, and save functionalities
