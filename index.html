@@ -1,26 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Signature.io - Ayush Srivastava</title>
     <link rel="stylesheet" href="index.css">
 </head>
+
 <body>
     <h1>Signature.io - Ayush Srivastava</h1>
-    <b>Use tools to customize your signature</b>
+    <b>Use below tools to customize your signature</b>
     <div class="controls">
-        <label for="colorPicker">Color:</label>
-        <input type="color" id="colorPicker" value="#000000">
+        <div class="color-container">
+            <label for="colorPicker">Color</label>
+            <input type="color" id="colorPicker" value="#000000">
+        </div>
+        <div class="font-container">
+            <label for="fontSize">Font Size:</label>
+            <select id="fontSize">
+                <option value="1">1px</option>
+                <option value="2">2px</option>
+                <option value="3">3px</option>
+                <option value="4">4px</option>
+                <option value="5">5px</option>
+                <option value="6">6px</option>
+                <option value="7">7px</option>
+                <option value="8">8px</option>
+                <option value="9">9px</option>
+                <option value="10">10px</option>
+            </select>
+        </div>
 
-        <label for="fontSize">Font Size:</label>
-        <input type="number" id="fontSize" value="5" min="1" max="100">
-
-        <button id="clearBtn">Clear</button>
-        <button id="saveBtn">Save</button>
     </div>
     <hr>
     <canvas id="canvas" width="800" height="500"></canvas>
+    <div class="control-btn">
+        <button id="clearBtn">Clear</button>
+        <button id="saveBtn">Download</button>
+    </div>
     <script src="index.js"></script>
 </body>
+
 </html>
